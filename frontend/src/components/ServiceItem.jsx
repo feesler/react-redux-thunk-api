@@ -14,7 +14,7 @@ const ServiceItem = (props) => {
         <span className="service-item__name">{name}</span>
         <span className="service-item__price">{price}</span>
         <div className="service-item__controls">
-          {!removing && !error && <IconButton icon={UpdateIcon} onClick={() => onUpdate(id)} />}
+          {!removing && <IconButton icon={UpdateIcon} onClick={() => onUpdate(id)} />}
           {(removing && !error)
             ? <IconButton className="spinner-btn"><Spinner className="spinner-border-sm" /></IconButton>
             : <IconButton icon={DeleteIcon} onClick={() => onDelete(id)} />

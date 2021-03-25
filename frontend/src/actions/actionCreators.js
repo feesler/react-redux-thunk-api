@@ -1,4 +1,5 @@
 import {
+  RESET_SERVICE_FORM,
   CHANGE_SERVICE_FIELD,
   INVALIDATE_SERVICE_FIELD,
   FETCH_SERVICE_REQUEST,
@@ -26,9 +27,7 @@ export const fetchServiceFailure = (error) => ({
 
 export const fetchServiceSuccess = (item) => ({
   type: FETCH_SERVICE_SUCCESS,
-  payload: {
-    item,
-  },
+  payload: { item },
 });
 
 export const fetchServicesRequest = () => ({
@@ -42,9 +41,7 @@ export const fetchServicesFailure = (error) => ({
 
 export const fetchServicesSuccess = (items) => ({
   type: FETCH_SERVICES_SUCCESS,
-  payload: {
-    items,
-  },
+  payload: { items },
 });
 
 export const submitServiceRequest = (item) => ({
@@ -76,6 +73,10 @@ export const removeServiceSuccess = (id) => ({
   payload: { id },
 });
 
+export const resetServiceForm = () => ({
+  type: RESET_SERVICE_FORM,
+});
+
 export const changeServiceField = (name, value) => ({
   type: CHANGE_SERVICE_FIELD,
   payload: { name, value },
@@ -86,7 +87,7 @@ export const invalidateServiceField = (name) => ({
   payload: { name },
 });
 
-export const fetchService = async (dispatch, id) => {
+export const fetchService = (id) => async (dispatch) => {
   dispatch(fetchServiceRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`)
@@ -101,7 +102,7 @@ export const fetchService = async (dispatch, id) => {
   }
 }
 
-export const fetchServices = async (dispatch) => {
+export const fetchServices = () => async (dispatch) => {
   dispatch(fetchServicesRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}`)
@@ -116,7 +117,7 @@ export const fetchServices = async (dispatch) => {
   }
 }
 
-export const submitService = async (dispatch, history, item) => {
+export const submitService = (history, item) => async (dispatch) => {
   dispatch(submitServiceRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
@@ -135,7 +136,7 @@ export const submitService = async (dispatch, history, item) => {
   }
 }
 
-export const removeService = async (dispatch, id) => {
+export const removeService = (id) => async (dispatch) => {
   dispatch(removeServiceRequest(id));
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`, {

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import {
+  resetServiceForm,
   changeServiceField,
   invalidateServiceField,
   submitService,
@@ -25,7 +26,9 @@ function ServiceForm() {
 
   useEffect(() => {
     if (id) {
-      fetchService(dispatch, id);
+      dispatch(fetchService(id));
+    } else {
+      dispatch(resetServiceForm());
     }
   }, [id, dispatch]);
 
@@ -52,14 +55,14 @@ function ServiceForm() {
       return;
     }
 
-    submitService(dispatch, history, item);
+    dispatch(submitService(history, item));
   }
 
   if (loading) {
     return <Spinner />;
   }
 
-  if (error) {
+  if (error || submitError) {
     return (
       <div className="error-message">Something went wrong. Try again later</div>
     );
@@ -121,11 +124,10 @@ function ServiceForm() {
             { 'btn-striped': submitting }
           )}
           type="submit"
+          disabled={submitting}
           value="Сохранить"
         />
       </div>
-
-      { submitError && <div className="error-message">Something went wrong. Try again</div>}
     </form>
   );
 }

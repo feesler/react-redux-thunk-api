@@ -11,7 +11,7 @@ function ServiceList(props) {
   let history = useHistory();
 
   useEffect(() => {
-    fetchServices(dispatch);
+    dispatch(fetchServices());
   }, [dispatch]);
 
   const handleUpdate = (id) => {
@@ -19,7 +19,7 @@ function ServiceList(props) {
   }
 
   const handleRemove = (id) => {
-    removeService(dispatch, id);
+    dispatch(removeService(id));
   }
 
   if (loading) {

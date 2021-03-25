@@ -9,6 +9,22 @@
 
 ## Available Scripts
 
+## Backend
+
+In the backend directory, you can run:
+
+### `npm start`
+
+Starts local server on [http://localhost:7070](http://localhost:7070).\
+
+### `npm restart`
+
+Restarts all running servers
+
+### `npm stop`
+
+Stop all running servers
+
 ## Frontend
 
 In the frontend directory, you can run:
