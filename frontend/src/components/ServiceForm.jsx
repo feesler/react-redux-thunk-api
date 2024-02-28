@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import {
   resetServiceForm,
@@ -13,7 +13,7 @@ import Spinner from './Spinner';
 
 function ServiceForm() {
   const { id } = useParams();
-  let history = useHistory();
+  const navigate = useNavigate();
   const {
     item,
     validation,
@@ -38,7 +38,7 @@ function ServiceForm() {
   };
 
   const handleCancel = () => {
-    history.goBack();
+    navigate(-1);
   }
 
   const handleSubmit = (e) => {
@@ -55,7 +55,7 @@ function ServiceForm() {
       return;
     }
 
-    dispatch(submitService(history, item));
+    dispatch(submitService(navigate, item));
   }
 
   if (loading) {

@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import serviceListReducer from '../reducers/serviceList';
 import serviceFormReducer from '../reducers/serviceForm';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk'
 
 const reducer = combineReducers({
   serviceList: serviceListReducer,

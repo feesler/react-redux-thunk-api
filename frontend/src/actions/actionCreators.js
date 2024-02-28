@@ -117,7 +117,7 @@ export const fetchServices = () => async (dispatch) => {
   }
 }
 
-export const submitService = (history, item) => async (dispatch) => {
+export const submitService = (navigate, item) => async (dispatch) => {
   dispatch(submitServiceRequest());
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
@@ -130,7 +130,7 @@ export const submitService = (history, item) => async (dispatch) => {
     }
     dispatch(submitServiceSuccess());
 
-    history.goBack();
+    navigate(-1);
   } catch (e) {
     dispatch(submitServiceFailure(e.message));
   }

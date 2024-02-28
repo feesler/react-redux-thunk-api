@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { removeService, fetchServices } from '../actions/actionCreators';
 import Spinner from './Spinner';
 import ServiceItem from './ServiceItem';
@@ -8,14 +8,14 @@ import ServiceItem from './ServiceItem';
 function ServiceList(props) {
   const { items, loading, error } = useSelector(state => state.serviceList);
   const dispatch = useDispatch();
-  let history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchServices());
   }, [dispatch]);
 
   const handleUpdate = (id) => {
-    history.push(`/services/${id}`);
+    navigate.push(`/services/${id}`);
   }
 
   const handleRemove = (id) => {
