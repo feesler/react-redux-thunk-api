@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteBase /netology/11/react-redux-thunk-api/api/
+
+RewriteRule ^(.*)$ services.php?route=$1 [L,QSA]
+

@@ -8,18 +8,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" exact >
-          <Navigate to="/services" />
-        </Route>
-        <Route path="/services/new">
-          <ServiceForm />
-        </Route>
-        <Route path="/services/:id">
-          <ServiceForm />
-        </Route>
-        <Route path="/services">
-          <ServiceList />
-        </Route>
+        <Route path="/" element={<Navigate to="/services" />} />
+        <Route path="/services/new" Component={ServiceForm} />
+        <Route path="/services/:id" Component={ServiceForm} />
+        <Route path="/services" Component={ServiceList} />
       </Routes>
     </div>
   );
