@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { removeService, fetchServices } from '../actions/actionCreators';
-import Spinner from './Spinner';
-import ServiceItem from './ServiceItem';
+import { removeService, fetchServices } from '../actions/actionCreators.js';
+import Spinner from './Spinner.jsx';
+import ServiceItem from './ServiceItem.jsx';
 
 function ServiceList(props) {
   const { items, loading, error } = useSelector(state => state.serviceList);

@@ -7,7 +7,7 @@ import {
   SUBMIT_SERVICE_REQUEST,
   SUBMIT_SERVICE_FAILURE,
   SUBMIT_SERVICE_SUCCESS,
-} from '../actions/actionTypes'
+} from '../actions/actionTypes.js';
 
 const initialState = {
   item: { name: '', price: '', content: '' },

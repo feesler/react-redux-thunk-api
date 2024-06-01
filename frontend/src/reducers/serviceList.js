@@ -5,7 +5,7 @@ import {
   REMOVE_SERVICE_REQUEST,
   REMOVE_SERVICE_SUCCESS,
   REMOVE_SERVICE_FAILURE,
-} from '../actions/actionTypes'
+} from '../actions/actionTypes.js';
 
 const initialState = {
   items: [],

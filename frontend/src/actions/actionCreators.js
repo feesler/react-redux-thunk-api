@@ -14,7 +14,7 @@ import {
   REMOVE_SERVICE_REQUEST,
   REMOVE_SERVICE_FAILURE,
   REMOVE_SERVICE_SUCCESS,
-} from './actionTypes';
+} from './actionTypes.js';
 
 export const fetchServiceRequest = () => ({
   type: FETCH_SERVICE_REQUEST,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from './IconButton';
-import Spinner from './Spinner';
+import IconButton from './IconButton.jsx';
+import Spinner from './Spinner.jsx';
 import { ReactComponent as UpdateIcon } from '../assets/edit.svg';
 import { ReactComponent as DeleteIcon } from '../assets/close.svg';
 

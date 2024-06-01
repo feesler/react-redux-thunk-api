@@ -8,8 +8,8 @@ import {
   invalidateServiceField,
   submitService,
   fetchService,
-} from '../actions/actionCreators';
-import Spinner from './Spinner';
+} from '../actions/actionCreators.js';
+import Spinner from './Spinner.jsx';
 
 function ServiceForm() {
   const { id } = useParams();
